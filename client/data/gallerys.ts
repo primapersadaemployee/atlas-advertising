@@ -1,4 +1,11 @@
-const gallerys = [
+interface Gallery {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+}
+
+const gallerys: Gallery[] = [
   {
     id: 1,
     title: "Digital Printing 1",

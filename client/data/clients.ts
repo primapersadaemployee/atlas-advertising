@@ -1,0 +1,26 @@
+const clients: string[] = [
+  "PT. Mitrelindo Global",
+  "PT. WAKU",
+  "PT. Puma Cat Indonesia",
+  "PT. Massindo Karya Prima",
+  "PT. Matahari Putra Makmur",
+  "PT. Yan Property",
+  "PT. PP Properti",
+  "PT. Percikan Iman",
+  "PT. Ruang Raya Indonesia",
+  "Universitas Maranatha",
+  "Universitas Pendididkan Indonesia",
+  "PT. Mount Scopus Indonesia",
+  "PT. Pelangi Kreasi Utama",
+  "PT. Phoenix Grafistama",
+  "PT. Calysta Prima Estetik",
+  "KABOBS premium kebab",
+  "LINTAS WARNA, EO",
+  "CAH EVENT, EO",
+  "Mizan Distributions (penerbit)",
+  "Holiday Springbed",
+  "Zam Zam Residence",
+  "Universitas Parahyangan",
+];
+
+export { clients };

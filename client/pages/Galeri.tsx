@@ -1,233 +1,77 @@
-import Layout from "@/components/Layout";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { useState } from "react";
-import { Image, Filter, Grid3X3, List, ArrowUpRight } from "lucide-react";
+import { Helmet } from "react-helmet";
+import Layout from "@/components/layout/Layout";
 import Partner from "@/components/Partner";
 import BGHeroAbout from "/images/bg-hero-about.jpeg";
-import { gallerys } from "../data/gallerys";
+import Hero from "@/components/Hero";
+import Gallery from "@/components/Gallery";
 
 export default function Galeri() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [viewMode, setViewMode] = useState("grid");
-
-  const countCategory = (name: string) => {
-    const count = gallerys.filter(
-      (gallery) => gallery.category === name,
-    ).length;
-    return count;
-  };
-
-  const categories = [
-    { id: "all", name: "Semua", count: gallerys.length },
-    {
-      id: "digital-printing",
-      name: "Digital Printing",
-      count: countCategory("digital-printing"),
-    },
-    {
-      id: "sablon-spanduk",
-      name: "Sablon Spanduk",
-      count: countCategory("sablon-spanduk"),
-    },
-    { id: "t-banner", name: "T-Banner", count: countCategory("t-banner") },
-    { id: "round-tag", name: "Round Tag", count: countCategory("round-tag") },
-    { id: "shop-sign", name: "Shop Sign", count: countCategory("shop-sign") },
-    { id: "baliho", name: "Baliho", count: countCategory("baliho") },
-    {
-      id: "pasang-spanduk",
-      name: "Pasang Spanduk",
-      count: countCategory("pasang-spanduk"),
-    },
-    {
-      id: "cetak-offset",
-      name: "Cetak Offset",
-      count: countCategory("cetak-offset"),
-    },
-  ];
-
-  const filteredGallery =
-    selectedCategory === "all"
-      ? gallerys
-      : gallerys.filter((gallery) => gallery.category === selectedCategory);
-
   return (
-    <Layout>
-      {/* Hero Section */}
-      <section className="relative bg-black text-atlas-white overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-50"
-          style={{ backgroundImage: `url(${BGHeroAbout})` }}
-        ></div>
-        <div className="relative container mx-auto px-2 py-20 md:py-32">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Galeri</h1>
-            <p className="text-xl text-atlas-white/90 max-w-2xl mx-auto mb-8">
-              Dokumentasi pekerjaan dan portfolio Atlas Advertising. Lihat hasil
-              karya kami untuk berbagai klien di seluruh Indonesia.
-            </p>
-          </div>
+    <>
+      <Helmet>
+        <title>
+          Galeri - Jasa Pasang Spanduk, Baliho, t-banner, revisual billboard
+        </title>
+        <meta
+          name="description"
+          content="Lihat portofolio pemasangan spanduk, baliho, t-banner, dan billboard yang telah dikerjakan Atlas Advertising. Bukti nyata komitmen kami dalam memberikan hasil iklan outdoor yang rapi, menarik, dan efektif."
+        />
+        <meta
+          name="keywords"
+          content="galeri Atlas Advertising, portofolio pemasangan spanduk, hasil pemasangan baliho, contoh iklan outdoor, dokumentasi reklame, proyek billboard"
+        />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="Atlas Advertising - Jasa Spanduk, Baliho, T-Banner, Billboard"
+        />
+        <meta
+          property="og:description"
+          content="Solusi iklan outdoor profesional dengan hasil cepat, rapi, dan tepat sasaran."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://atlasadvertising.id/" />
+        <meta
+          property="og:image"
+          content="https://atlasadvertising.id/wp-content/uploads/2023/09/cropped-logo-website-2-2.png"
+        />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Atlas Advertising - Jasa Spanduk, Baliho, T-Banner, Billboard"
+        />
+        <meta
+          name="twitter:description"
+          content="Solusi iklan outdoor profesional dengan hasil cepat, rapi, dan tepat sasaran."
+        />
+        <meta
+          name="twitter:image"
+          content="https://atlasadvertising.id/wp-content/uploads/2023/09/cropped-logo-website-2-2.png"
+        />
+      </Helmet>
+      <Layout>
+        {/* Hero Section */}
+        <div data-aos="fade-down">
+          <Hero
+            backgroundImage={BGHeroAbout}
+            title="Galeri"
+            description="Dokumentasi pekerjaan dan portfolio Atlas Advertising. Lihat hasil karya kami untuk berbagai klien di seluruh Indonesia."
+          />
         </div>
-      </section>
 
-      {/* Gallery Section */}
-      <section className="py-16 bg-gradient-to-br from-atlas-blue/5 to-atlas-red/5">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-atlas-blue mb-4">
-              Galeri Produk & Pemasangan
-            </h2>
-            <p className="text-lg text-atlas-blue/70 max-w-4xl mx-auto">
-              Berikut adalah dokumentasi hasil pekerjaan kami selama ini semoga
-              dapat menjadi referensi untuk dapat bekerjasama dengan Perusahaan
-              Anda.
-            </p>
-          </div>
-
-          {/* Filter Controls */}
-          <div className="flex flex-col lg:flex-row justify-between items-center mb-8 gap-1">
-            <div className="flex flex-wrap items-center gap-1">
-              {/* <Filter className="w-5 h-5 text-atlas-blue mr-2" /> */}
-              {categories.map((category) => (
-                <Button
-                  key={category.id}
-                  variant={
-                    selectedCategory === category.id ? "default" : "outline"
-                  }
-                  size="sm"
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={
-                    selectedCategory === category.id
-                      ? "bg-atlas-red hover:bg-atlas-red/90 text-atlas-white"
-                      : "border-atlas-blue/20 text-atlas-blue hover:bg-atlas-blue hover:text-atlas-white"
-                  }
-                >
-                  {category.name} ({category.count})
-                </Button>
-              ))}
-            </div>
-
-            <div className="flex items-center gap-2">
-              <Button
-                variant={viewMode === "grid" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setViewMode("grid")}
-                className={
-                  viewMode === "grid"
-                    ? "bg-atlas-blue hover:bg-atlas-blue/90"
-                    : "border-atlas-blue/20 text-atlas-blue hover:bg-atlas-blue hover:text-atlas-white"
-                }
-              >
-                <Grid3X3 className="w-4 h-4" />
-              </Button>
-              <Button
-                variant={viewMode === "list" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setViewMode("list")}
-                className={
-                  viewMode === "list"
-                    ? "bg-atlas-blue hover:bg-atlas-blue/90"
-                    : "border-atlas-blue/20 text-atlas-blue hover:bg-atlas-blue hover:text-atlas-white"
-                }
-              >
-                <List className="w-4 h-4" />
-              </Button>
-            </div>
-          </div>
-
-          {/* Gallery Grid */}
-          {viewMode === "grid" ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredGallery.map((gallery) => (
-                <Card
-                  key={gallery.id}
-                  className="border border-atlas-blue/10 hover:border-atlas-red/30 transition-all duration-300 group overflow-hidden cursor-pointer"
-                >
-                  <div className="relative">
-                    <img
-                      src={gallery.image}
-                      alt={gallery.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-atlas-blue/0 group-hover:bg-atlas-blue/20 transition-colors duration-300 flex items-center justify-center">
-                      <ArrowUpRight className="w-6 h-6 text-atlas-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </div>
-                    <div className="absolute bottom-2 left-2">
-                      <Badge
-                        variant="outline"
-                        className="bg-atlas-white/90 text-atlas-blue border-atlas-blue/20 text-xs"
-                      >
-                        {
-                          categories.find((cat) => cat.id === gallery.category)
-                            ?.name
-                        }
-                      </Badge>
-                    </div>
-                  </div>
-                  <CardContent className="p-4">
-                    <h3 className="text-sm font-semibold text-atlas-blue mb-1 line-clamp-1 group-hover:text-atlas-red transition-colors">
-                      {gallery.title}
-                    </h3>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {filteredGallery.map((gallery) => (
-                <Card
-                  key={gallery.id}
-                  className="border border-atlas-blue/10 hover:border-atlas-red/30 transition-colors group cursor-pointer"
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-6">
-                      <img
-                        src={gallery.image}
-                        alt={gallery.title}
-                        className="w-24 h-24 object-cover rounded-lg flex-shrink-0"
-                      />
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between mb-2">
-                          <h3 className="text-lg font-semibold text-atlas-blue group-hover:text-atlas-red transition-colors">
-                            {gallery.title}
-                          </h3>
-                          <Badge
-                            variant="outline"
-                            className="border-atlas-blue/20 text-atlas-blue"
-                          >
-                            {
-                              categories.find(
-                                (cat) => cat.id === gallery.category,
-                              )?.name
-                            }
-                          </Badge>
-                        </div>
-                      </div>
-                      <ArrowUpRight className="w-5 h-5 text-atlas-blue/40 group-hover:text-atlas-red transition-colors" />
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          )}
-
-          {filteredGallery.length === 0 && (
-            <div className="text-center py-12">
-              <Image className="w-16 h-16 text-atlas-blue/30 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-atlas-blue mb-2">
-                Tidak ada proyek ditemukan
-              </h3>
-              <p className="text-atlas-blue/70">
-                Coba ganti kategori filter untuk melihat proyek lainnya.
-              </p>
-            </div>
-          )}
+        {/* Gallery Section */}
+        <div data-aos="fade-up">
+          <Gallery />
         </div>
-      </section>
 
-      {/* Partner Section */}
-      <Partner />
-    </Layout>
+        {/* Partner Section */}
+        <div data-aos="fade-up">
+          <Partner />
+        </div>
+      </Layout>
+    </>
   );
 }

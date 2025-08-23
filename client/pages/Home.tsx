@@ -1,30 +1,25 @@
 import { Helmet } from "react-helmet";
 import Layout from "@/components/layout/Layout";
 import Partner from "@/components/Partner";
-import BGHeroAbout from "/images/bg-hero-about.jpeg";
-import Hero from "@/components/Hero";
-import AboutCompany from "@/components/AboutCompany";
-import CompanyHistory from "@/components/CompanyHistory";
-import VisionMission from "@/components/VisionMission";
-import AdvertisingTypes from "@/components/AdvertisingTypes";
-import WorkAreas from "@/components/WorkAreas";
-import Client from "@/components/Client";
+import CTA from "@/components/CTA";
+import HeroHome from "@/components/HeroHome";
+import Statistics from "@/components/Statistics";
+import AboutSummary from "@/components/AboutSummary";
+import ServiceHighlight from "@/components/ServiceHighlight";
+import CompanyAdvantages from "@/components/CompanyAdvantages";
 
-export default function TentangKami() {
+export default function Home() {
   return (
     <>
       <Helmet>
-        <title>
-          Tentang Kami - Jasa Pasang Spanduk, Baliho, t-banner, revisual
-          billboard
-        </title>
+        <title>Jasa Pasang Spanduk, Baliho, t-banner, revisual billboard</title>
         <meta
           name="description"
-          content="Atlas Advertising bergerak di bidang periklanan outdoor dengan spesialisasi pemasangan spanduk, baliho, t-banner, hingga revisual billboard. Berpengalaman, profesional, dan berkomitmen membantu bisnis Anda tampil lebih menonjol di ruang publik."
+          content="Atlas Advertising adalah perusahaan periklanan terpercaya yang menyediakan jasa pasang spanduk, baliho, t-banner, dan revisual billboard. Solusi iklan outdoor profesional dengan hasil cepat, rapi, dan tepat sasaran."
         />
         <meta
           name="keywords"
-          content="tentang Atlas Advertising, jasa reklame profesional, jasa pasang spanduk berpengalaman, periklanan outdoor terpercaya, jasa pemasangan baliho"
+          content="Atlas Advertising, jasa pasang spanduk, jasa baliho, jasa pasang t-banner, jasa revisual billboard, iklan outdoor, pemasangan reklame, jasa periklanan"
         />
 
         {/* Open Graph */}
@@ -61,46 +56,37 @@ export default function TentangKami() {
       <Layout>
         {/* Hero Section */}
         <div data-aos="fade-down">
-          <Hero
-            backgroundImage={BGHeroAbout}
-            title="Tentang Kami"
-            description="Mengenal lebih dekat Atlas Advertising, perusahaan periklanan outdoor terpercaya dengan pengalaman lebih dari 20 tahun."
-          />
+          <HeroHome />
         </div>
 
-        {/* About Company Section */}
+        {/* Statistics Section */}
         <div data-aos="fade-up">
-          <AboutCompany />
+          <Statistics />
         </div>
 
-        {/* Company History */}
+        {/* About Summary Section */}
         <div data-aos="fade-up">
-          <CompanyHistory />
+          <AboutSummary />
         </div>
 
-        {/* Vision & Mission with Compro */}
-        <div data-aos="zoom-in">
-          <VisionMission />
-        </div>
-
-        {/* Types of Advertising */}
+        {/* Services Highlight Section */}
         <div data-aos="fade-up">
-          <AdvertisingTypes />
+          <ServiceHighlight />
         </div>
 
-        {/* Work Areas */}
+        {/* Company Advantages Section */}
         <div data-aos="fade-up">
-          <WorkAreas />
+          <CompanyAdvantages />
         </div>
 
-        {/* Clients */}
-        <div data-aos="fade-up">
-          <Client />
-        </div>
-
-        {/* Partner Logos Looping Section (same as homepage) */}
+        {/* Partner Logos Section */}
         <div data-aos="fade-up">
           <Partner />
+        </div>
+
+        {/* CTA Section */}
+        <div data-aos="fade-up">
+          <CTA />
         </div>
       </Layout>
     </>

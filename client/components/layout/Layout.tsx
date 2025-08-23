@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import Logo from "/atlas-logo.png";
 import LogoWhite from "/atlas-logo-white.png";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -159,6 +160,9 @@ export default function Layout({ children }: LayoutProps) {
           </div>
         </div>
       </footer>
+      
+      {/* Scroll to Top Button */}
+      <ScrollToTopButton />
     </div>
   );
 }

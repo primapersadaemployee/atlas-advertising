@@ -1,4 +1,10 @@
-const partners = [
+interface Partner {
+  id: number;
+  name: string;
+  image: string;
+}
+
+const partners: Partner[] = [
   {
     id: 1,
     name: "Biru",
