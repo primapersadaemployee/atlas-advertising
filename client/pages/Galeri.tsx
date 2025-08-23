@@ -3,18 +3,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
-import {
-  Image,
-  Eye,
-  Calendar,
-  MapPin,
-  Filter,
-  Grid3X3,
-  List,
-  ArrowUpRight,
-} from "lucide-react";
+import { Image, Filter, Grid3X3, List, ArrowUpRight } from "lucide-react";
 import Partner from "@/components/Partner";
-import BGHeroAbout from "../../public/images/bg-hero-about.jpeg";
+import BGHeroAbout from "/images/bg-hero-about.jpeg";
 import { gallerys } from "../data/gallerys";
 
 export default function Galeri() {
@@ -95,9 +86,9 @@ export default function Galeri() {
           </div>
 
           {/* Filter Controls */}
-          <div className="flex flex-col lg:flex-row justify-between items-center mb-8 gap-4">
+          <div className="flex flex-col lg:flex-row justify-between items-center mb-8 gap-1">
             <div className="flex flex-wrap items-center gap-1">
-              <Filter className="w-5 h-5 text-atlas-blue mr-2" />
+              {/* <Filter className="w-5 h-5 text-atlas-blue mr-2" /> */}
               {categories.map((category) => (
                 <Button
                   key={category.id}

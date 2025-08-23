@@ -9,11 +9,11 @@ import {
   Handshake,
   Smile,
 } from "lucide-react";
-import BGHeroHome from "../../public/images/bg-hero-home.jpg";
+import BGHeroHome from "/images/bg-hero-home.jpg";
 import Typewriter from "typewriter-effect";
-import SpandukBentang from "../../public/images/spanduk-bentang.jpeg";
-import TBanner from "../../public/images/t-banner.jpeg";
-import Baliho from "../../public/images/baliho.jpeg";
+import SpandukBentang from "/images/spanduk-bentang.jpeg";
+import TBanner from "/images/t-banner.jpeg";
+import Baliho from "/images/baliho.jpeg";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 import Partner from "@/components/Partner";

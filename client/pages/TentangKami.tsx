@@ -9,8 +9,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Building, Target, Eye, MapPin, Users, Calendar } from "lucide-react";
 import Partner from "@/components/Partner";
-import BGHeroAbout from "../../public/images/bg-hero-about.jpeg";
-import Compro from "../../public/images/compro.jpg";
+import BGHeroAbout from "/images/bg-hero-about.jpeg";
+import Compro from "/images/compro.jpg";
 
 export default function TentangKami() {
   const reklamePermanent = [

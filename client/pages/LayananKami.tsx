@@ -17,16 +17,16 @@ import {
   Mail,
   MessageCircle,
 } from "lucide-react";
-import BGHeroService from "../../public/images/bg-hero-service.jpeg";
-import DigitalPrinting from "../../public/images/digital-printing.jpg";
-import SablonSpanduk from "../../public/images/sablon-spanduk.jpg";
-import CetakOffset from "../../public/images/cetak-offset.jpg";
-import TBanner from "../../public/images/t-banner.jpeg";
-import RoundTag from "../../public/images/round-tag.jpg";
-import Reskin from "../../public/images/reskin.jpg";
-import Baliho from "../../public/images/baliho.jpeg";
-import Spanduk from "../../public/images/spanduk.jpg";
-import ShopSign from "../../public/images/shop-sign.jpg";
+import BGHeroService from "/images/bg-hero-service.jpeg";
+import DigitalPrinting from "/images/digital-printing.jpg";
+import SablonSpanduk from "/images/sablon-spanduk.jpg";
+import CetakOffset from "/images/cetak-offset.jpg";
+import TBanner from "/images/t-banner.jpeg";
+import RoundTag from "/images/round-tag.jpg";
+import Reskin from "/images/reskin.jpg";
+import Baliho from "/images/baliho.jpeg";
+import Spanduk from "/images/spanduk.jpg";
+import ShopSign from "/images/shop-sign.jpg";
 import { Link } from "react-router-dom";
 import CTA from "@/components/CTA";
 

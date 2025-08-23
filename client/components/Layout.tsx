@@ -2,8 +2,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import Logo from "../../public/atlas-logo.png";
-import LogoWhite from "../../public/atlas-logo-white.png";
+import Logo from "/atlas-logo.png";
+import LogoWhite from "/atlas-logo-white.png";
 
 interface LayoutProps {
   children: React.ReactNode;

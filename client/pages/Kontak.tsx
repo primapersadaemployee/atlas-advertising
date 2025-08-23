@@ -7,10 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { useState } from "react";
 import {
   Phone,
   MessageCircle,
@@ -22,7 +19,9 @@ import {
   Send,
   Building,
 } from "lucide-react";
-import BGHeroService from "../../public/images/bg-hero-service.jpeg";
+import BGHeroService from "/images/bg-hero-service.jpeg";
+import { Link } from "react-router-dom";
+import CTA from "@/components/CTA";
 
 export default function Kontak() {
   const bandungContacts = [
@@ -37,17 +36,14 @@ export default function Kontak() {
     { name: "Admin", phone: "0813 22 11 9899", isPrimary: false },
   ];
 
-  const primaryPhone = "081322000798";
-  const primaryDisplayPhone = "0813 22 000 798";
-
   const handleWhatsApp = () => {
-    const message = `Halo Atlas Advertising, saya tertarik dengan layanan advertising Anda. Mohon informasi lebih lanjut.`;
-    const whatsappUrl = `https://wa.me/${primaryPhone}?text=${encodeURIComponent(message)}`;
+    const message = `Halo Atlas, Saya mau order...`;
+    const whatsappUrl = `https://wa.me/6281322000798?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
   };
 
   const handleDirectCall = () => {
-    window.open(`tel:${primaryPhone}`, "_self");
+    window.open(`tel:+6281322000798`, "_self");
   };
 
   return (
@@ -80,7 +76,7 @@ export default function Kontak() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-atlas-white text-atlas-white hover:bg-atlas-white hover:text-atlas-blue px-8"
+                className="border-atlas-white text-atlas-blue hover:bg-atlas-white/90 hover:text-atlas-blue px-8"
                 onClick={handleDirectCall}
               >
                 <Phone className="w-5 h-5 mr-2" />
@@ -181,7 +177,7 @@ export default function Kontak() {
                     onClick={handleWhatsApp}
                   >
                     <MessageCircle className="w-4 h-4 mr-2" />
-                    WhatsApp
+                    Chat WhatsApp
                   </Button>
                   <Button
                     size="sm"
@@ -190,14 +186,14 @@ export default function Kontak() {
                     onClick={handleDirectCall}
                   >
                     <Phone className="w-4 h-4 mr-2" />
-                    Call
+                    Telp Langsung
                   </Button>
                 </div>
               </CardContent>
             </Card>
 
             {/* Lampung Office */}
-            <Card className="border-2 border-atlas-blue/10 hover:border-atlas-red/30 transition-colors">
+            <Card className="border-2 border-atlas-blue/10 hover:border-atlas-red/30 transition-colors flex flex-col h-full">
               <CardHeader>
                 <CardTitle className="text-xl text-atlas-blue flex items-center gap-2">
                   <Building className="w-6 h-6 text-atlas-red" />
@@ -207,68 +203,82 @@ export default function Kontak() {
                   Melayani wilayah Lampung dan Sumatera Selatan
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-atlas-red mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium text-atlas-blue">Alamat:</p>
-                    <p className="text-atlas-blue/80">
-                      Jl. Sultan Badarudin No. 50
-                      <br />
-                      Tanjung Karang Barat
-                      <br />
-                      Bandar Lampung, Lampung
-                    </p>
+              <CardContent className="flex flex-col flex-grow">
+                <div className="space-y-6">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-atlas-red mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium text-atlas-blue">Alamat:</p>
+                      <p className="text-atlas-blue/80">
+                        Jl. Sultan Badarudin No. 50
+                        <br />
+                        Tanjung Karang Barat
+                        <br />
+                        Bandar Lampung, Lampung
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-atlas-red mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium text-atlas-blue">Email:</p>
-                    <div className="space-y-1">
-                      <p className="text-atlas-blue/80">
-                        admin.atlasadvertising.id
-                      </p>
-                      <p className="text-atlas-blue/80">
-                        atlas.adv2017@gmail.com
-                      </p>
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 text-atlas-red mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium text-atlas-blue">Email:</p>
+                      <div className="space-y-1">
+                        <p className="text-atlas-blue/80">
+                          admin.atlasadvertising.id
+                        </p>
+                        <p className="text-atlas-blue/80">
+                          atlas.adv2017@gmail.com
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-5 h-5 text-atlas-red mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium text-atlas-blue">Telepon:</p>
+                      <div className="space-y-2">
+                        {lampungContacts.map((contact, index) => (
+                          <div key={index} className="flex items-center gap-2">
+                            <span className="text-atlas-blue/80">
+                              {contact.phone} ({contact.name})
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-atlas-red mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium text-atlas-blue">Telepon:</p>
-                    <div className="space-y-2">
-                      {lampungContacts.map((contact, index) => (
-                        <div key={index} className="flex items-center gap-2">
-                          <span className="text-atlas-blue/80">
-                            {contact.phone} ({contact.name})
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex gap-3 pt-4">
-                  <Button
-                    size="sm"
-                    className="bg-atlas-blue hover:bg-atlas-blue/90 flex-1"
+                <div className="flex gap-3 pt-4 mt-auto">
+                  <Link
+                    to="https://wa.me/6281322119899?text=Halo%20Atlas,%20Saya%20mau%20order..."
+                    target="_blank"
+                    className="w-full"
                   >
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    WhatsApp
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="border-atlas-blue text-atlas-blue hover:bg-atlas-blue hover:text-atlas-white flex-1"
+                    <Button
+                      size="sm"
+                      className="bg-atlas-blue hover:bg-atlas-blue/90 w-full"
+                    >
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      Chat WhatsApp
+                    </Button>
+                  </Link>
+                  <Link
+                    to="tel:+6281322119899"
+                    target="_self"
+                    className="w-full"
                   >
-                    <Phone className="w-4 h-4 mr-2" />
-                    Call
-                  </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="border-atlas-blue text-atlas-blue hover:bg-atlas-blue hover:text-atlas-white w-full"
+                    >
+                      <Phone className="w-4 h-4 mr-2" />
+                      Telp Langsung
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -293,14 +303,14 @@ export default function Kontak() {
               <CardContent className="p-0">
                 <div className="relative w-full h-96">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9005851613044!2d107.66516967500046!3d-6.928517881398446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e89cbb5c063f%3A0x1234567890abcdef!2sJl.%20Parakan%20Mas%20Indah%201%20No.18%2C%20Antapani%20Tengah%2C%20Kec.%20Antapani%2C%20Kota%20Bandung%2C%20Jawa%20Barat%2040291!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.680262913327!2d107.66490207577263!3d-6.928768167822531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68dd310c321453%3A0x83dcabfcb6c33e63!2sATLAS%20Advertising%20%7C%20Jasa%20Pasang%20Spanduk%20%7C%20Jasa%20Pasang%20Baliho%20%7C%20Jasa%20Pasang%20T-Banner%20%7C%20Pajak%20%26%20Perijinan%20Reklame!5e0!3m2!1sid!2sid!4v1755867370321!5m2!1sid!2sid"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
                     allowFullScreen
+                    title="Atlas Advertising Bandung Office Location"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Atlas Advertising Bandung Office Location"
                     className="rounded-lg"
                   ></iframe>
                 </div>
@@ -311,7 +321,7 @@ export default function Kontak() {
                 Jl. Parakan Mas Indah 1 No. 18, Kel. Antapani Tengah, Kec.
                 Antapani, Bandung 40291
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <div className="flex justify-center">
                 <Button
                   variant="outline"
                   className="border-atlas-blue text-atlas-blue hover:bg-atlas-blue hover:text-atlas-white"
@@ -324,19 +334,6 @@ export default function Kontak() {
                 >
                   <MapPin className="w-4 h-4 mr-2" />
                   Buka di Google Maps
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-atlas-red text-atlas-red hover:bg-atlas-red hover:text-atlas-white"
-                  onClick={() =>
-                    window.open(
-                      "https://waze.com/ul?ll=-6.928517881398446,107.6675413689449&navigate=yes",
-                      "_blank",
-                    )
-                  }
-                >
-                  <MapPin className="w-4 h-4 mr-2" />
-                  Buka di Waze
                 </Button>
               </div>
             </div>
@@ -371,7 +368,7 @@ export default function Kontak() {
                     className="bg-atlas-blue hover:bg-atlas-blue/90 w-full"
                     onClick={() =>
                       window.open(
-                        "https://facebook.com/atlasadvertising",
+                        "https://www.facebook.com/cetakspandukdibandung?mibextid=ZbWKwL",
                         "_blank",
                       )
                     }
@@ -395,7 +392,7 @@ export default function Kontak() {
                     className="bg-atlas-red hover:bg-atlas-red/90 w-full"
                     onClick={() =>
                       window.open(
-                        "https://instagram.com/atlasadvertising",
+                        "https://instagram.com/pasangspanduk_bandung?igshid=ZDc4ODBmNjlmNQ==",
                         "_blank",
                       )
                     }
@@ -436,36 +433,7 @@ export default function Kontak() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-atlas-blue text-atlas-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Siap Memulai Project Advertising Anda?
-          </h2>
-          <p className="text-xl mb-8 text-atlas-white/90 max-w-2xl mx-auto">
-            Hubungi tim profesional Atlas Advertising sekarang juga. Konsultasi
-            gratis untuk semua kebutuhan advertising Anda.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-atlas-red hover:bg-atlas-red/90 px-8"
-              onClick={handleWhatsApp}
-            >
-              <MessageCircle className="w-5 h-5 mr-2" />
-              Chat WhatsApp Sekarang
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-atlas-white text-atlas-white hover:bg-atlas-white hover:text-atlas-blue px-8"
-              onClick={handleDirectCall}
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Telp Langsung: {primaryDisplayPhone}
-            </Button>
-          </div>
-        </div>
-      </section>
+      <CTA />
     </Layout>
   );
 }
