@@ -47,7 +47,7 @@ export default function OfficeLocation({ handleWhatsApp, handleDirectCall }) {
                 <div>
                   <p className="font-medium text-atlas-blue">Alamat:</p>
                   <p className="text-atlas-blue/80">
-                    Jl. Parakan Mas Indah 1 No. 18
+                    Jl. Cibodas Raya No. 18
                     <br />
                     Kel. Antapani Tengah, Kec. Antapani
                     <br />
@@ -81,14 +81,6 @@ export default function OfficeLocation({ handleWhatsApp, handleDirectCall }) {
                         <span className="text-atlas-blue/80">
                           {contact.phone} ({contact.name})
                         </span>
-                        {contact.isPrimary && (
-                          <Badge
-                            variant="outline"
-                            className="text-xs border-atlas-red text-atlas-red"
-                          >
-                            Primary
-                          </Badge>
-                        )}
                       </div>
                     ))}
                   </div>
