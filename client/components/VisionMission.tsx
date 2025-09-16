@@ -1,6 +1,8 @@
 import { Eye, Target } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import Compro from "/images/compro.jpg";
+import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 export default function VisionMission() {
   return (
@@ -44,6 +46,14 @@ export default function VisionMission() {
               loading="lazy"
               className="w-full h-auto object-cover object-center"
             />
+            <a href="/compro-atlas.pdf" download="COMPRO_ATLAS_ADV_2023.pdf">
+              <Button
+                size="lg"
+                className="bg-atlas-red hover:bg-atlas-red/90 px-8 block mx-auto mt-8 w-fit"
+              >
+                Download Company Profile
+              </Button>
+            </a>
           </div>
         </div>
       </div>
