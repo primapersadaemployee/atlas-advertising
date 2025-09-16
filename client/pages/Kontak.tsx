@@ -12,7 +12,7 @@ import AdditionalInfo from "@/components/AdditionalInfo";
 
 export default function Kontak() {
   const handleWhatsApp = useCallback(() => {
-    const message = `Halo Atlas, Saya mau order...`;
+    const message = `Halo Atlas Andalas Advertising, Saya mau order...`;
     const whatsappUrl = `https://wa.me/6281322000798?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
   }, []);
